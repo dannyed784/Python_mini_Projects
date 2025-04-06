@@ -1,0 +1,29 @@
+import string
+print(string.printable)
+
+#This returns a string containing all the characters 
+#that are generally considered safe and printable:
+
+0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~\r\x0b\x0c
+
+code example:
+raw_list = ['P', 'W', 'd', 'o', '8', '2', 'm', '\x8f']
+
+cleaned_list = [ch for ch in raw_list if ch in string.printable]
+print(cleaned_list)
+
+what this line does?
+#it loops through raw_list
+#keeps only characters that are found in string.printable
+#Removes anything "weird" or unreadable
+
+['P', 'W', 'd', 'o', '8', '2', 'm']  # '\x8f' is gone!
+
+
+[ch for ch in raw_list if ch in string.printable]
+
+ch : Each item/character from the original list (raw_list)
+for ch in raw_list: Loops through each element in raw_list
+if ch in string.printable: Keeps only the elements that are 
+in string.printable (i.e., clean ones)

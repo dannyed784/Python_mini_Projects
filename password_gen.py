@@ -1,6 +1,9 @@
 import os
 import random
+import string
 os.system("clear")
+
+print("***WELCOME TO PASSWORD GENERATOR V1.0***")
 
 # the password needs to include:
 # 2 uppercase letters from A to Z
@@ -31,7 +34,17 @@ punctuationSign2 = chr(random.randint(33,152))
 
 #5. Generate de password 
 password = (uppercase_letter1 + uppercase_letter2 + lowercase_letter1 + lowercase_letter2 + digit1 + digit2 + punctuationSign1 + punctuationSign2)
-password_list = list(password)
 
-print(password)
-print(password_list)
+#6. Create a list with password chartacters
+password_list = list(password)
+#7. Cleatn the password list for non printable characters
+cleaned_password = [ch for ch in password_list if ch in string.printable]
+
+#8. Shuffle the password cleaned list
+random.shuffle(cleaned_password)
+
+#8. join the password list
+cleaned_password_result = ''.join(cleaned_password)
+print(cleaned_password_result)
+
+
